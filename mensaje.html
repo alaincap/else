@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje de Amor</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+
+        .screen {
+            display: none;
+            text-align: center;
+            padding: 50px;
+            color: white;
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 20px;
+            animation: floatHeart 3s linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background: rgba(3, 114, 204, 0.801);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .popup img {
+            max-width: 50%;
+            border-radius: 5px;
+        }
+
+        .popup button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: #000033;
+            color: rgba(255, 255, 255, 0.959);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .screen h1, .screen p {
+            opacity: 0;
+            animation: typingEffect 1s steps(20, end) forwards;
+        }
+
+        .screen h1 {
+            animation-delay: 0.5s;
+        }
+
+        .screen p {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes typingEffect {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #FFC0CB;
+            animation: confettiFall 3s linear infinite;
+            z-index: 1000;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(0) rotate(0);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        .kiss {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 100px;
+            color: red;
+            display: none;
+        }
+        .popup a {
+        color: #ff69b4; /* Un rosa vibrante */
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .popup a:hover {
+        color: #ff1493; /* Un rosa más oscuro */
+    }
+    </style>
+</head>
+<body>
+    <!-- Fondo de estrellas -->
+    <div class="stars"></div>
+
+    <!-- Reproductor de audio fuera de las pantallas -->
+    <audio id="loveSong" src="audio/New West - Those Eyes (Traducida Al Español) - FRAY M (youtube).mp3" loop autoplay></audio>
+
+    <!-- Contenedor principal -->
+    <div id="container">
+        <!-- Pantalla 1 -->
+        <section class="screen active" id="screen1">
+            <h1>💖 HOLA MI VIDA ALEJANDRA 💖</h1>
+            <p>Se que no es mucho este programa per opuede hacer algo con la programacion</p>
+            <p>es bueno hacer MUCHAS COSAS PARA TI porque te lo mereces</p>
+            <p>Voy Aqui con mi mini aliente con algo nuevo</p>
+            <div style="font-size: 50px; margin-top: 20px;">😊</div>
+            <button onclick="showScreen(2)">Continuar</button>
+        </section>
+
+        <!-- Pantalla 2 -->
+        <section class="screen" id="screen2">
+            <h1>💖 ERES MUCHO MI AMOR💖</h1>
+            <p>HICISTE MUCHO ESTE AÑO aunque no son los que querias</p>
+            <p>pero lo hiciste bien mi vida lo importante es que lo intentas</p>
+            <p>eso ya es mucho ya para alguien intentar y hacerlo es algo increible</p>
+            <p>y por eso tendras esto</p>
+            <button onclick="showPopup()">Ver regalo</button>
+            <button onclick="showScreen(3)">Continuar</button>
+        </section>
+
+        <!-- Pantalla 3 -->
+        <section class="screen" id="screen3">
+            <h1>💖LAS SEGUNDAS OPORTUNIDADES💖</h1>
+            <p>
+                Sabemos que no fue le año esperado pero la esperanza no se va❤️
+            </p>
+            <p>tu tienes mucho que dar por ti y por tu futuro yo estare ahi contigo</p>
+            <p>no se ignifica que me elejare puede pasar muchas cosas mi vida</p>
+            <p>per no se sabe el futuro se vera adelante </p>
+            <p>ha y por cierto nose si esto lo estes viendo con mi musica cursi ggg</p>
+            <p>y mira nomas aqui haciendo esto virtualmente ya es la honda de los programadores JAJAAJAJ</p>
+            <button onclick="showScreen(4)">Continuar</button>
+        </section>
+
+        <!-- Pantalla 4 -->
+        <section class="screen" id="screen4">
+            <h1>💖 FINAL💖</h1>
+            <p>
+                BUENO aqui va la ultima ventana te quiro desear un FELIZ CUMPLE MI VIDA  ❤️
+            </p>
+            <p>PASALA SUPER BIEN ES ESTE DIA PARA TI BESITO PARA TI </p>
+            <button onclick="showKiss()">Enviar beso</button>
+            <button onclick="showConfettiPopup()">Abrir sorpresa</button>
+            <a href="index.html" class="back-button">Regresar al inicio</a>
+        </section>
+    </div>
+
+    <!-- Corazones flotantes -->
+    <div id="hearts-container"></div>
+    <!-- Popup -->
+    <div id="popup" class="popup">
+        <img src="img/MEDLLA FEMENINA.jpg" alt="Regalo">
+        <button onclick="closePopup()">Cerrar</button>
+    </div>
+    <!-- Popup de confeti -->
+    <div id="confetti-popup" class="popup">
+        <h2>🎉 ¡Sorpresa! 🎉</h2>
+        <p>CANCION CON SIGNIFICADO 1:</p>
+        <a href="https://youtu.be/6U9mxrnjCvA?si=bZ8pEjKlck2vSVTL" target="_blank">Ver VIDEO</a>
+        <p>CANCION CON SIGNIFICADO 2:</p>
+        <a href="https://youtu.be/a08UTUiRw8c?si=YLDOWznVwKe7xhqY" target="_blank">Ver video</a>
+        <br>
+        <button onclick="closePopup()">Cerrar</button>
+    </div>
+
+    <div id="kiss" class="kiss">💋</div>
+
+
+    <script>
+        function showScreen(screenNumber) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            const nextScreen = document.getElementById(`screen${screenNumber}`);
+            nextScreen.classList.add('active');
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.textContent = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+
+        setInterval(createHeart, 300);
+
+        function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+        function showKiss() {
+            const kiss = document.getElementById('kiss');
+            kiss.style.display = 'block';
+            setTimeout(() => {
+                kiss.style.display = 'none';
+            }, 2000);
+        }
+
+        function showConfettiPopup() {
+            const popup = document.getElementById('confetti-popup');
+            popup.style.display = 'block';
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+    </script>
+</body>
+</html>

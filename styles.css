@@ -1,0 +1,135 @@
+/* Configuración del fondo con imagen */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('img/IMAGENFONDO.jpg') no-repeat center center fixed;
+    background-size: cover; /* Asegura que cubra toda la pantalla */
+    color: #ffffff;
+    overflow: hidden; /* Evitar scroll */
+}
+
+/* Contenedor del login */
+.login-container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para el texto */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    width: 300px;
+}
+
+/* Estilo de los campos */
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Mensaje de error */
+.error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+/* Fondo de estrellas */
+.stars, .twinkling {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.stars {
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    animation: move-stars 200s linear infinite;
+}
+
+.twinkling {
+    background-image: url('https://www.transparenttextures.com/patterns/constellation.png');
+    opacity: 0.5;
+    animation: move-twinkling 100s linear infinite;
+}
+
+@keyframes move-stars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1000px); }
+}
+
+@keyframes move-twinkling {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1000px); }
+}
+
+/* Contenedor de pantallas */
+#container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Pantallas */
+.screen {
+    display: none; /* Ocultas por defecto */
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    max-width: 600px;
+    margin: auto;
+    position: absolute;
+}
+
+/* Mostrar pantalla activa */
+.screen.active {
+    display: block;
+}
+
+/* Botón de regresar */
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff4757;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #e84118;
+}
+
