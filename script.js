@@ -22,7 +22,7 @@ function validatePassword() {
         window.location.href = "mensaje.html";
     } else {
         // Mostrar mensaje de error
-        errorMessage.textContent = "ES LO QUE TE DIGO MUCHO MI ELSE";
+        errorMessage.textContent = "ES LO QUE TE DIGO AVECES MI ELSE";
         errorMessage.style.display = "block";
     }
 }
