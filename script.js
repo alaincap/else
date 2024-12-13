@@ -22,7 +22,7 @@ function validatePassword() {
         window.location.href = "mensaje.html";
     } else {
         // Mostrar mensaje de error
-        errorMessage.textContent = "Contraseña incorrecta. Inténtalo de nuevo.";
+        errorMessage.textContent = "ES LO QUE TE DIGO MUCHO MI ELSE";
         errorMessage.style.display = "block";
     }
 }
